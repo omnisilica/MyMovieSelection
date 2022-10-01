@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Insert title here</title>
+		<link rel="stylesheet" th:href="@{~/styles/main.css}" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer@1/dist/bouncer.polyfills.min.js"></script>
+	</head>
+	<body>
+		<div id="sign-up-form-container">
+			<div class="background-blur-backdrop">
+				<div class="form-container">
+					<p class="text-center">Start Creating Your Movie Selections</p>
+					<form action="#" th:action="@{/signup}" th:object="${mmsUser}" method="post" >
+					  <div class="mb-3">
+					    <input type="email" field="*{mmsUserEmail}" name="mmsUserEmail" class="form-control input-height" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="*Enter your email" required/>
+					    <div th:if="${#fields.hasErrors('mmsUserEmail')}" th:errors="*{mmsUserEmail}"></div>
+					  </div>
+					  <div class="mb-3">
+					    <input type="text" field="*{mmsUserUsername}" name="mmsUserUsername" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="*Enter your username" required/>
+					    <div th:if="${#fields.hasErrors('mmsUserUsername')}" th:errors="*{mmsUserUsername}"></div>
+					  </div>
+					  <div class="mb-3">
+					    <input type="password" minlength="8" maxlength="15" field="*{mmsUserPassword}" name="mmsUserPassword" class="form-control" id="exampleInputPassword1" placeholder="*Create a password" required/>
+					    <div th:if="${#fields.hasErrors('mmsUserPassword')}" th:errors="*{mmsUserPassword}"></div>
+					  </div>
+					  <button type="submit" class="btn btn-primary">Sign Up</button>
+					</form>			
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var validate = new Bouncer('form');
+	</script>
+</html>

@@ -1,0 +1,68 @@
+html, body { height: 100vh; width: 100vw; margin: 0; display: flex;}
+
+#sign-up-form-container {
+	background-image: url("../media/50-guy-movies-collage.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.background-blur-backdrop {
+	background: rgba(255, 255, 255, 0.2);
+  	backdrop-filter: blur(6px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+
+.form-container {
+	background-color: #fcfcfc;
+	border-radius: 25px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 600px;
+	width: 450px;
+}
+
+.form-container p {
+	font-size: 150%;
+	margin-top: 60px;
+}
+
+.form-container form {
+	width: 90%;
+}
+
+.form-container button {
+	width: 100%;
+}
+
+/**
+ * Form Validation Errors
+ */
+.error {
+	border-color: red;
+}
+
+.error-message {
+	color: red;
+	font-style: italic;
+	margin-bottom: 1em;
+}
+
+
+
+/*** Media Queries ****/
+@media screen and (max-width: 550px) {
+	.form-container p {
+		color: #fcfcfc;
+	}
+	
+	.form-container {
+		background-color: rgba(252, 252, 252, 0);
+	}
+}

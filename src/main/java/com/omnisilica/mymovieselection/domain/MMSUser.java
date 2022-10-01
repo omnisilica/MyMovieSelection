@@ -6,6 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="mms_user")
@@ -13,50 +16,55 @@ public class MMSUser {
 	
 	@Id
 	@Column(name="mmsuser_email", unique=true)
-	private String mmsuserEmail;
+	@NotBlank(message = "This field is required.")
+	@Email(message = "Please enter a valid e-mail address.")
+	private String mmsUserEmail;
 	
 	@Column(name="mmsuser_username", unique=true)
-	private String userUsername;
+	@NotBlank(message = "This field is required.")
+	private String mmsUserUsername;
 	
 	@Column(name="mmsuser_password", unique=true)
-	private String userPassword;
+	@NotBlank(message = "This field is required.")
+	//@Size(min = 5, message = "{Size.Person.FullName}")
+	private String mmsUserPassword;
 
 	public MMSUser() {}
 
-	public MMSUser(String mmsuserEmail, String userUsername, String userPassword) {
+	public MMSUser(String mmsUserEmail, String mmsUserUsername, String mmsUserPassword) {
 		super();
-		this.mmsuserEmail = mmsuserEmail;
-		this.userUsername = userUsername;
-		this.userPassword = userPassword;
+		this.mmsUserUsername = mmsUserEmail;
+		this.mmsUserUsername = mmsUserUsername;
+		this.mmsUserPassword = mmsUserPassword;
 	}
 
-	public String getMmsuserEmail() {
-		return mmsuserEmail;
+	public String getmmsUserEmail() {
+		return mmsUserEmail;
 	}
 
-	public void setMmsuserEmail(String mmsuserEmail) {
-		this.mmsuserEmail = mmsuserEmail;
+	public void setmmsUserEmail(String mmsUserEmail) {
+		this.mmsUserEmail = mmsUserEmail;
 	}
 
-	public String getUserUsername() {
-		return userUsername;
+	public String getmmsUserUsername() {
+		return mmsUserUsername;
 	}
 
-	public void setUserUsername(String userUsername) {
-		this.userUsername = userUsername;
+	public void setmmsUserUsername(String mmsUserUsername) {
+		this.mmsUserUsername = mmsUserUsername;
 	}
 
-	public String getUserPassword() {
-		return userPassword;
+	public String getmmsUserPassword() {
+		return mmsUserPassword;
 	}
 
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setmmsUserPassword(String mmsUserPassword) {
+		this.mmsUserPassword = mmsUserPassword;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(mmsuserEmail, userPassword, userUsername);
+		return Objects.hash(mmsUserEmail, mmsUserPassword, mmsUserUsername);
 	}
 
 	@Override
@@ -68,8 +76,12 @@ public class MMSUser {
 			return false;
 		}
 		MMSUser other = (MMSUser) obj;
-		return Objects.equals(mmsuserEmail, other.mmsuserEmail) && Objects.equals(userPassword, other.userPassword)
-				&& Objects.equals(userUsername, other.userUsername);
+		return Objects.equals(mmsUserEmail, other.mmsUserEmail)
+				&& Objects.equals(mmsUserPassword, other.mmsUserPassword)
+				&& Objects.equals(mmsUserUsername, other.mmsUserUsername);
 	}
+	
+	
+
 
 }
