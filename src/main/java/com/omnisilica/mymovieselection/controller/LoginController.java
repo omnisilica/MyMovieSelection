@@ -1,6 +1,9 @@
 package com.omnisilica.mymovieselection.controller;
 
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,13 +46,20 @@ public class LoginController {
 	
 	@GetMapping("/login")
 	String loginPageHandler() {
-		return "login";
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String view = "redirect:/";
+		
+		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+			view = "login";
+		}
+		
+		return view;
 	}
 	
-	@PostMapping("/login_")
-	String authenticateUserHandler() {
-		return "index";
-	}
+//	@PostMapping("/login_")
+//	String authenticateUserHandler() {
+//		return "index";
+//	}
 	
 	@GetMapping("/my_movies")
 	String moviesDashboardHandler() {

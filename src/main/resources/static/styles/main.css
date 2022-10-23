@@ -8,6 +8,15 @@ html, body { height: 100vh; width: 100vw; margin: 0; display: flex;}
 	width: 100%;
 }
 
+.login-form-container {
+	background-image: url("../media/avatar_2.png");
+	background-repeat: no-repeat;
+	background-size: 150%;
+	background-position: 0% 50%; 
+	height: 100%;
+	width: 100%;
+}
+
 .background-blur-backdrop {
 	background: rgba(255, 255, 255, 0.2);
   	backdrop-filter: blur(6px);
@@ -39,6 +48,28 @@ html, body { height: 100vh; width: 100vw; margin: 0; display: flex;}
 
 .form-container button {
 	width: 100%;
+}
+
+.form-container a:hover {
+	color: #0f0f0f;
+}
+
+.clapperboard {
+	margin-top: 50px;
+	text-decoration: none;
+	color: #0f0f0f;
+}
+
+.login-error {
+	font-size: 60%;
+	color: #d4300f;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-error p {
+	margin-top: 0%;
 }
 
 /**
