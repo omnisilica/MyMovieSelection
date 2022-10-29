@@ -45,25 +45,13 @@ public class LoginController {
 	}
 	
 	@GetMapping("/login")
-	String loginPageHandler() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String view = "redirect:/";
-		
-		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-			view = "login";
-		}
-		
-		return view;
+	String authenticateUserHandler() {
+		return "login";
 	}
-	
-//	@PostMapping("/login_")
-//	String authenticateUserHandler() {
-//		return "index";
-//	}
 	
 	@GetMapping("/my_movies")
 	String moviesDashboardHandler() {
-		return "dashboard";
+		return "my_movies";
 	}
 	
 	@PostMapping("/signup")
