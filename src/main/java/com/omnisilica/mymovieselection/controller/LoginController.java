@@ -45,15 +45,16 @@ public class LoginController {
 	}
 	
 	@GetMapping("/login")
-	String loginPageHandler() {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String view = "redirect:/";
-		
-		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-			view = "login";
-		}
-		
-		return view;
+	String authenticateUserHandler() {
+//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//		String view = "redirect:/";
+//		
+//		if(authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+//			view = "login";
+//		}
+//		
+//		return view;
+		return "login";
 	}
 	
 //	@PostMapping("/login_")

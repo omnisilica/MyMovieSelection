@@ -15,16 +15,16 @@
 					<a th:href="@{/}" class="clapperboard"><i class="fa-solid fa-clapperboard fa-3x"></i></a>
 					<p class="text-center">Let's Get Back To Those flicks</p>
 					<form th:action="@{/login}" method="post">
-					<div th:if="${param.error}" class="login-error">
-						<p>Invalid username or password</p>
-					</div>					
-					  <div class="mb-3">
-					    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
-					  </div>
-					  <div class="mb-3">
-					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-					  </div>
-					  <button type="submit" class="btn btn-primary">Login</button>
+						<div th:if="${param.error}" class="login-error">
+							<p>Invalid username or password</p>
+						</div>
+						 <div class="mb-3">
+						   <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your email">
+						 </div>
+						 <div class="mb-3">
+						   <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+						 </div>
+						 <button type="submit" class="btn btn-primary">Login</button>
 					</form>
 				</div>
 			</div>

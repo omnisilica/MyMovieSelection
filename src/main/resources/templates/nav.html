@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="navbar" class="navbar-container">
+			<div class="icon-logo">
+				<a th:href="@{/}"><i class="fa-solid fa-clapperboard fa-3x"></i></a>
+			</div>
+			<nav class="navigation">
+				<ul>
+					<!-- <li><a th:href="@{/signup}">Sign Up</a></li> -->
+					<!-- <li class="logout-button" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-sm btn-outline-secondary" type="button">Logout</button></a></li> -->
+					<!-- <li class="login-button" sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><button class="btn btn-sm btn-outline-secondary" type="button">Login</button></a></li> -->
+					<sec:authorize access="isAuthenticated()">
+					    <li class="logout-button" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-sm btn-outline-secondary" type="button">Logout</button></a></li>
+					</sec:authorize>	
+					<sec:authorize access="!isAuthenticated()">				
+						<li class="login-button" sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><button class="btn btn-sm btn-outline-secondary" type="button">Login</button></a></li>
+					</sec:authorize>
+				</ul>
+			</nav>
+		</div>
+	</body>
+</html>

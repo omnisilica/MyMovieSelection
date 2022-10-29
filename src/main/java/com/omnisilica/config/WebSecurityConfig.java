@@ -23,11 +23,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import com.omnisilica.mymovieselection.repository.MMSUserRepository;
 import com.omnisilica.mymovieselection.service.CustomUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	MMSUserRepository mmsUserRepository;
 	
 	@Bean
     public UserDetailsService userDetailsService() {
@@ -55,22 +59,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
  
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	
         http.authorizeRequests()
-            .antMatchers().authenticated()
+        	.antMatchers(
+				 "/registration**",
+	                "/js/**",
+	                "/css/**",
+	                "/img/**").authenticated()
             .anyRequest().permitAll()
             .and()
             .formLogin()
             	.loginPage("/login")
+            	.defaultSuccessUrl("/")
                 .usernameParameter("email")
                 .passwordParameter("password")
-//                .loginProcessingUrl("/login_")
                 .permitAll()
-                .defaultSuccessUrl("/")
             .and()
-            .logout().logoutSuccessUrl("/").permitAll();
+            .logout()
+            .logoutSuccessUrl("/")
+            .permitAll();
         
         http.csrf().disable();
         http.headers().frameOptions().disable();
+    	
     }
     
     @Bean
@@ -79,5 +90,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         registrationBean.addUrlMappings("/h2-console/*");
         return registrationBean;
     }
-//headers().frameOptions().disable()
+
 }
