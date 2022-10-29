@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="login-form-container">
-			<div class="background-blur-backdrop">
+			<div class="background-blur-backdrop background-blur-backdrop-login">
 				<div class="form-container">
 					<a th:href="@{/}" class="clapperboard"><i class="fa-solid fa-clapperboard fa-3x"></i></a>
 					<p class="text-center">Let's Get Back To Those flicks</p>
@@ -25,6 +25,7 @@
 						   <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 						 </div>
 						 <button type="submit" class="btn btn-primary">Login</button>
+						 <div class="signup-p"><p>Don't have an account? <span><a th:href="@{/signup}">Sign up</a></span></p></div>
 					</form>
 				</div>
 			</div>

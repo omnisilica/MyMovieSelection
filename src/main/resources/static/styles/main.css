@@ -49,6 +49,10 @@ ul {
 	width: 100%;
 }
 
+.background-blur-backdrop-login {
+	backdrop-filter: blur(0px);
+}
+
 .form-container {
 	background-color: #fcfcfc;
 	border-radius: 25px;
@@ -64,6 +68,11 @@ ul {
 	margin-top: 60px;
 }
 
+.signup-p p {
+	font-size: 100%;
+	margin-top: 12px;
+}
+
 .form-container form {
 	width: 90%;
 }
@@ -74,10 +83,25 @@ ul {
 
 .navigation ul {
 	margin-top: 12px;
+	display: flex;
 }
 
 a:link {
 	text-decoration: none;
+}
+
+.my-movies-link {
+	margin: 3px 18px 0px 0px;
+}
+
+.my-movies-link a {
+	color: #f0f0f0;
+	font-size: 15px;
+	
+}
+
+.my-movies-link a:hover {
+	color: #1b28b5;
 }
 
 .clapperboard {
