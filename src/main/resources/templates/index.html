@@ -9,10 +9,42 @@
 		<link rel="stylesheet" th:href="@{~/styles/main.css}" />
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/gh/cferdinandi/bouncer@1/dist/bouncer.polyfills.min.js"></script>
+		<script type="text/javascript" th:src="@{/js/main.js}"></script>
 	</head>
 	<body>
 		<header class="header-container">
 			<div th:insert="nav :: navbar"></div>
+			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			  <div class="carousel-inner">
+			    <div class="carousel-item active">
+			      <img src="https://images.thedirect.com/media/article_full/ant-man-3-quantumania_BsVTfEW.jpg" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{~/media/Black-Panther-2-Rumor-Reveals-Doctor-Doom-Role-Details.jpg}" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{~/media/Greenland-2020-film-poster.jpg}" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{~/media/MarioMovie_Poster.jpg}" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{https://www.pastposters.com/cw3/assets/product_expanded/JamieR-SW/martian-cinema-quad-movie-poster-(teaser-b-1).jpg}" class="d-block w-100" alt="...">
+			    </div>
+			    <div class="carousel-item">
+			      <img th:src="@{~/media/tileburnedin.jpeg}" class="d-block w-100" alt="...">
+			    </div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+			</div>
 		</header>
+		<button type="button" onclick="showAlert()"></button>
 	</body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<body>
-		<div th:fragment="navbar" class="navbar-container">
+		<div th:fragment="navbar" class="navbar-container position-navbar">
 			<div class="icon-logo">
 				<a th:href="@{/}"><i class="fa-solid fa-clapperboard fa-3x"></i></a>
 			</div>
@@ -14,7 +14,7 @@
 					    <li class="logout-button" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-sm btn-outline-secondary" type="button">Logout</button></a></li>
 					</sec:authorize>
 					<sec:authorize access="!isAuthenticated()">				
-						<li class="login-button" sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><button class="btn btn-sm btn-outline-secondary" type="button">Login</button></a></li>
+						<li class="login-button" sec:authorize="!isAuthenticated()"><a th:href="@{/login}"><button class="btn btn-sm btn-outline-secondary black-button" type="button">Login</button></a></li>
 					</sec:authorize>
 				</ul>
 			</nav>
